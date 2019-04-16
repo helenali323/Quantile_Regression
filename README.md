@@ -20,7 +20,17 @@ In most of machine learning models, predictions are made based on the mean value
 _For more examples and usage, please refer to the [Wiki][notebook]._
 
 ## Quantile Loss Score
-Quantile Loss Score (Koenker, 2005) is defined as r latexImg('\rho_{\tau}')
+Quantile Loss Score (Koenker, 2005) is defined as 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\rho_{\tau}(v)&space;=&space;\tau&space;max(v,0)&space;&plus;&space;(1-\tau)max(-v,0)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\rho_{\tau}(v)&space;=&space;\tau&space;max(v,0)&space;&plus;&space;(1-\tau)max(-v,0)" title="\rho_{\tau}(v) = \tau max(v,0) + (1-\tau)max(-v,0)" /></a>
+
+Where v is the error term, <img src="https://latex.codecogs.com/gif.latex?\tau" title="\tau" /> is the quantile we want to estimate.
+
+Basically, It means to weighted the absolute error term by <img src="https://latex.codecogs.com/gif.latex?\tau" title="\tau" /> if error term exceeds 0, and 1-<img src="https://latex.codecogs.com/gif.latex?\tau" title="\tau" /> otherwise.
+
+For a series of data, the total quantile loss is the average of single quantile loss.
+
+<img src="https://latex.codecogs.com/gif.latex?QS&space;=&space;\frac{1}{N}\sum_{n=1}^N\rho_{\tau}(y_n-\hat{y}_{\tau,n})" title="QS = \frac{1}{N}\sum_{n=1}^N\rho_{\tau}(y_n-\hat{y}_{\tau,n})" />
 
 
 
@@ -29,14 +39,6 @@ Quantile Loss Score (Koenker, 2005) is defined as r latexImg('\rho_{\tau}')
 
 
 <!-- Markdown link & img dfn's -->
-latexImg = function(latex){
-
-    link = paste0('http://latex.codecogs.com/gif.latex?',
-           gsub('\\=','%3D',URLencode(latex)))
-
-    link = gsub("(%..)","\\U\\1",link,perl=TRUE)
-    return(paste0('![](',link,')'))
-}
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/datadog-metrics
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
