@@ -20,7 +20,7 @@ In most of machine learning models, predictions are made based on the mean value
 _For more examples and usage, please refer to the [Wiki][notebook]._
 
 ## Quantile Loss Score
-Quantile Loss Score (Koenker, 2005) is defined as $$\rho_{t}(v,0)$$
+Quantile Loss Score (Koenker, 2005) is defined as r latexImg('\rho_{\tau}')
 
 
 
@@ -29,6 +29,14 @@ Quantile Loss Score (Koenker, 2005) is defined as $$\rho_{t}(v,0)$$
 
 
 <!-- Markdown link & img dfn's -->
+latexImg = function(latex){
+
+    link = paste0('http://latex.codecogs.com/gif.latex?',
+           gsub('\\=','%3D',URLencode(latex)))
+
+    link = gsub("(%..)","\\U\\1",link,perl=TRUE)
+    return(paste0('![](',link,')'))
+}
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/datadog-metrics
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
