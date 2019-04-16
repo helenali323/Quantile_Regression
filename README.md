@@ -17,7 +17,7 @@ pip install scikit-garden
 
 In most of machine learning models, predictions are made based on the mean value. In some cases, however, we care about the whole distribution of data. For examples, if I am a risk-avoid person, I want to know the lower quantile of a financial portfolio so that I can better estimate the underperformance. If I want to buy a house in the San Francisco Bay area, I  might also only care about the lower quantile of house price, which I can afford.
 
-_For more examples and usage, please refer to the [Wiki][notebook]._
+_For more examples and usage, please refer to the [notebook](https://github.com/helenali323/Quantile_Regression/blob/master/Renting_example%20.ipynb)._
 
 ## Quantile Loss Score
 Quantile Loss Score (Koenker, 2005) is defined as 
